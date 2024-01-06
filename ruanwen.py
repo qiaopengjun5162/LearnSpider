@@ -6,7 +6,7 @@
 @File     : ruanwen.py
 """
 import requests
-import ddddocr  # pip install ddddocr
+import captcha_ddddocr  # pip install ddddocr
 
 headers = {
     "Referer": "https://i.ruanwen.la/",
@@ -23,7 +23,7 @@ res = requests.get(url=captcha_src)
 # with open(f"{captcha_token}.png", mode='wb') as f:
 #     f.write(res.content)
 
-ocr = ddddocr.DdddOcr(show_ad=False)
+ocr = captcha_ddddocr.DdddOcr(show_ad=False)
 code = ocr.classification(res.content)
 print(f"code: {code}")
 
